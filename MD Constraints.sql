@@ -1,0 +1,22 @@
+
+-- This extracts constraints metadata. 
+
+SELECT ccu.[TABLE_CATALOG]
+      ,ccu.[TABLE_SCHEMA]
+      ,ccu.[TABLE_NAME]
+      ,ccu.[COLUMN_NAME]
+      ,ccu.[CONSTRAINT_CATALOG]
+      ,ccu.[CONSTRAINT_SCHEMA]
+      ,ccu.[CONSTRAINT_NAME]
+	  
+      ,[CONSTRAINT_TYPE]
+      ,[IS_DEFERRABLE]
+      ,[INITIALLY_DEFERRED]
+  FROM [INFORMATION_SCHEMA].[CONSTRAINT_COLUMN_USAGE] ccu 
+  JOIN [INFORMATION_SCHEMA].[TABLE_CONSTRAINTS] tc 
+  ON ccu.[CONSTRAINT_NAME] = tc.[CONSTRAINT_NAME] 
+  ORDER BY [CONSTRAINT_TYPE] 
+		,ccu.[TABLE_NAME]
+        ,ccu.[COLUMN_NAME]
+  ;
+  

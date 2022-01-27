@@ -1,0 +1,15 @@
+
+-- This extracts key metadata. 
+
+SELECT [CONSTRAINT_CATALOG]
+      ,[CONSTRAINT_SCHEMA]
+      ,[CONSTRAINT_NAME]
+      ,[TABLE_CATALOG]
+      ,[TABLE_SCHEMA]
+      ,[TABLE_NAME]
+      ,[COLUMN_NAME]
+      ,[ORDINAL_POSITION]
+  FROM [INFORMATION_SCHEMA].[KEY_COLUMN_USAGE]
+  ;
+  
+  
